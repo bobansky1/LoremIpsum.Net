@@ -67,7 +67,7 @@ if (animItems.length > 0 ) {
     requestAnimationFrame(animOnScroll);
 }
 
-
+// HEADER STICKY
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -78,3 +78,30 @@ function scrollFunction() {
     header.classList.remove("sticky"); // Убрать класс, если прокрутка в начале страницы
   }
 }
+
+// Custom SELECT
+
+var customSelect = document.querySelector(".custom-select");
+var selectSelected = customSelect.querySelector(".select-selected");
+var selectItems = customSelect.querySelector(".select-items");
+var selectOptions = selectItems.querySelectorAll(".select-option");
+
+selectSelected.addEventListener("click", function() {
+  selectItems.classList.toggle("select-hide");
+  selectSelected.classList.toggle("select-arrow-active");
+});
+
+for (var i = 0; i < selectOptions.length; i++) {
+  selectOptions[i].addEventListener("click", function() {
+    selectSelected.textContent = this.textContent;
+    selectItems.classList.add("select-hide");
+    selectSelected.classList.remove("select-arrow-active");
+  });
+}
+
+document.addEventListener("click", function(e) {
+  if (!customSelect.contains(e.target)) {
+    selectItems.classList.add("select-hide");
+    selectSelected.classList.remove("select-arrow-active");
+  }
+});

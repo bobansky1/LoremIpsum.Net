@@ -560,6 +560,78 @@ input[type="range"]::-webkit-slider-thumb:active {
 input[type="range"]:focus {
    border: none;
 }
+
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+    flex: 0 1 33%;
+  }
+  
+.select-selected {
+    background-color: #eee;
+    padding: 0px 15px;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+    transition: all 0.3s ease 0s;
+    justify-content: space-between;
+}
+.select-selected svg{
+    transition: all 0.3s ease 0s;
+    
+}
+.select-arrow-active svg{
+    fill: #fff !important;
+    transform: rotate(180deg);
+}
+.select-arrow-active  path{
+
+    fill: #fff;
+}
+.select-arrow-active{
+    border-radius: 5px 5px 0px 0px;
+    background-color: rgba(61, 64, 80, 0.85);
+    color: #fff;
+}
+.select-items {
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+    position: absolute;
+    color: #fff;
+    background-color: rgba(39, 39, 51, 1);
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border: 1px solid rgba(61, 64, 80, 1);
+}
+.select-items::-webkit-scrollbar {
+    width: 7px;
+}
+.select-items::-webkit-scrollbar-thumb {
+    background-color: rgba(62, 156, 220, 1); 
+    border-radius: 20px; 
+}
+.select-items::-webkit-scrollbar-track {
+    background: rgba(61, 64, 80, 1);  
+}
+.select-items div {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.select-items div:hover {
+    color: #42A9ED;
+}
+.select-hide {
+    display: none;
+}
+  
 @media (max-width:800px) {
     .icon-flex__list{
         flex-wrap: wrap;
@@ -586,7 +658,9 @@ input[type="range"]:focus {
         flex: 0 1 100%;
         margin:  0 ;
     }
-    
+    .select-selected{
+        height: 46px;
+    }
 }
 @media (max-width:462px) {
     .icon-item__zakaz{
